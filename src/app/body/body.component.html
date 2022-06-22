@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="header"></h1>
+
+  <ul>
+
+      <div [ngClass]="getClass(user.age)" *ngFor="let user of userList">
+          <div class="userInfo">
+              <li>Name: {{user.name}}</li>
+              <li>Age: {{user.age}}</li>
+              <li>Email: {{user.email}}</li>
+              <li>Genre: {{user.genre}}</li>
+          </div>
+      </div>
+  </ul>
+  <input type="text" name="name" id="name" placeholder="Name" [(ngModel)]="name">
+  <input type="number" name="age" id="age" placeholder="Age" [(ngModel)]="age">
+  <small *ngIf="age<0">La edad no puede ser inferior a 0</small>
+  <input type="text" name="email" id="email" placeholder="Email" [(ngModel)]="email">
+  <input type="text" name="genre" id="genre" placeholder="Genre" [(ngModel)]="genre">
+  <button *ngIf="age>0"(click)="addUser()">Add User</button>
+
+</div>
+<!--"-->
