@@ -3,8 +3,8 @@
 
   <ul>
 
+    <div class="userInfo">
       <div [ngClass]="getClass(user.age)" *ngFor="let user of userList">
-          <div class="userInfo">
               <li>Name: {{user.name}}</li>
               <li>Age: {{user.age}}</li>
               <li>Email: {{user.email}}</li>
@@ -16,7 +16,14 @@
   <input type="number" name="age" id="age" placeholder="Age" [(ngModel)]="age">
   <small *ngIf="age<0">La edad no puede ser inferior a 0</small>
   <input type="text" name="email" id="email" placeholder="Email" [(ngModel)]="email">
-  <input type="text" name="genre" id="genre" placeholder="Genre" [(ngModel)]="genre">
+  <label for="genre">Choose a genre:</label>
+
+<select name="genre" id="genre"[(ngModel)]="genre">
+    <option value="">--Please choose an option--</option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+    <option value="notDefined">Not defined</option>
+</select>
   <button *ngIf="age>0"(click)="addUser()">Add User</button>
 
 </div>
